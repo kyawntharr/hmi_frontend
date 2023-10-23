@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/animate.css">
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* nav section */
+    html,
+    body {
+      position: relative;
+      height: 100%;
+      background-color: white;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      background-color: rgba(255, 255, 255, 0);
+      width: 100%;
+      height: 300px;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #ffffff00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* program */
+
+    .title {
+      letter-spacing: 2px;
+    }
+
+    .text-center .fa-solid {
+      color: #4781C7;
+      font-size: 58px;
+      margin-bottom: 20px;
+    }
+
+    /*  student_diversity_section */
+    .dotted-line {
+      border: none;
+      border-top: 6px dotted rgb(190, 180, 180);
+      color: #fff;
+      background-color: #fff;
+      width: 100%;
+      padding: 5px;
+    }
+
+    .dotted_container {
+      position: absolute;
+      
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .student_diversity_section .container-fluid {
+      position: relative;
+    }
+
+    /* small size */
+    @media screen and (max-width: 576px) {
+      .activities-text{
+        font-size: 25px !important;
+      }
+      .ativity-image-wrapper .col:nth-child(5) {
+        display: none;
+      }
+      
+      .ativity-image-wrapper:nth-child(2) {
+        display: none;
+      }
+    }
+
+    /* medium size */
+    @media screen and (max-width: 770px) {
+      .activities-text{
+        font-size: 40px;
+      }
+      #student_diversity .col-md-4 {
+        margin-top: 20px;
+      }
+
+      .ativity-image-wrapper:nth-child(2) {
+        display: none;
+      }
+
+
+      .ativity-image-wrapper .col:nth-child(6) {
+        display: none;
+      }
+
+      .dotted_container img {
+        height: 380px;
+      }
+    }
+
+    @media screen and (max-width: 990px) {
+      .navbar .container-fluid {
+        background-color: #ffffff;
+      }
+
+      .ativity-image-wrapper .col:nth-child(6) {
+        display: none;
+      }
+
+    }
+
+    /* activity_section */
+    .activities {
+      position: relative;
+      background-color: transparent;
+    }
+
+    .activities-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(232, 229, 229);
+      padding-bottom: 10px;
+      border-bottom: 8px solid #457cc0;
+      z-index: 9999;
+      
+    }
+
+    .activities-seemore {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(232, 229, 229);
+      font-size: 40px;
+
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    .activities-seemore:hover {
+      color: #73c2e3;
+    }
+
+    .ativity-image-wrapper .col {
+      position: relative;
+    }
+
+    .ativity-image-wrapper .col img {
+      width: 100%;
+    
+       object-fit: cover;
+    }
+
+    .ativity-image-wrapper .col .over-lay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+      opacity: 0.5;
+      transition: 0.2s ease-in-out;
+    }
+
+    .ativity-image-wrapper .col .over-lay:hover {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-color: white;
+    }
+
+
+    /* nav bar start */
+    .nav-link {
+      font-family: Cambria;
+      color: #457cc0;
+    }
+
+    .fixed-top {
+      z-index: 99999;
+      
+    }
+
+    .apply_btn {
+      background-color: #21A7E0;
+
+    }
+
+    .apply_btn:hover {
+      background-color: #4db8e6;
+    }
+
+    .topbtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      color: white;
+      cursor: pointer;
+
+      
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav-link {
+        font-size: 18px;
+      }
+      
+    }
+
+    @media screen and (max-width: 1800px) {
+      .nav-link {
+        font-size: 20px;
+      }
+    }
+
+    @media screen and (max-width: 1400px) {
+      .nav-link {
+        font-size: 18px;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .nav-link {
+        font-size: 14px;
+      }
+
+      .navbar-brand img {
+        height: 65px;
+      }
+    }
+
+      .navbar {
+            transition: all 0.2s ease;
+        }
+
+      .navbar-brand img {
+        height: 80px;
+      }
+      .hoverborder {
+    position: relative;
+  }
+
+  .hoverborder::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background:#4C81C5 ;
+    transition: width 0.3s;
+    bottom: 0;
+    left: 0;
+  }
+
+  .hoverborder:hover::after {
+    width: 100%;
+  }
+
+
+  .apply_btn {
+    background-image: linear-gradient(to right, #4C81C5 50%, transparent 50%);
+    background-size: 200% 100%;
+    transition: background-position 0.4s;
+  }
+
+  .apply_btn:hover {
+    background-position: -100% 0;
+  }
+      
+    /* nav bar end  */
+
+    /* color btn */
+    .blue {
+      background-color: #20A7DF;
+    }
+
+    .blue_dark {
+      background-color: #4C81C5;
+    }
+
+    /* year bottom */
+    .first-second-year .btn{
+      color: #fff;
+      line-height: 40px;
+    }
+    .first-second-year .btn:hover{
+      color: #e6ec71;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <section class="navbar_section">
+    <div class="row g-0">
+      <div class="noti-container ">
+        <div class="noti">
+          <i class="fa-solid fa-bell" style="color: #dc4044"></i>
+          <span class="text-white">
+            Registration for October Intake(Batch 3) is opening now!
+          </span>
+        </div>
+      </div>
+      <div class="ph-container text-white">
+        <div class="phone-1">09 785 806 735 ,</div>
+        <div class="phone-2">09 785 806 735 </div>
+      </div>
+    </div>
+
+    <nav class="navbar fixed-top mt-5 navbar-expand-lg bg-white shadow-sm">
+
+
+      <div class="container">
+        <a class="navbar-brand " href="#" >
+          <img src="./image/logo.png" alt="" class="navimg">
+        </a>
+        <button class="navbar-toggler shadow-none" style="color: #4781C7; font-size: 35px;" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center mb-2 mb-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link  me-xl-2" href="#"> <span class="hoverborder pb-2 "><b>Academic Program</b></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-xl-2" href="#"><span class="hoverborder pb-2"><b>About</b></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-xl-2" href="#"><span class="hoverborder pb-2"><b>Program Fee</b></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-xl-2" href="#"><span class="hoverborder pb-2"><b>Student Experience</b></span></a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link btn text-white rounded-3 px-4 d-flex align-items-center my-sm-2 apply_btn shadow">
+                <b>Apply Now</b>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </section>
+
+
+  <section class="landing-hmi mt-5 pt-4">
+    <div class="landing-wrapper row  g-0 ">
+      <div class="col-md-7">
+        <div class="header-wrapper  offset-1 ps-4 mt-5 ">
+          <h1 class="header-1 revel-fade mt-4">H <img src="./image/world.png" width="75px" class="mb-3" alt=""> S T</h1>
+          <h2 class="header2 mt-3">MYANMAR INSTITUTE</h2>
+          <span class="sub-header mt-4 d-block cam-font"><b>for your brighter future and career! 100% Job Guarantee!</b></span>
+
+          <button class="apply-btn rounded-pill mt-4">Apply Now</button>
+        </div>
+      </div>
+      <div class="col-md-5 d-none d-md-block">
+        <div id="canvas"></div>
+      </div>
+    </div>
+  </section>
+  <section class="student_program bg-white">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col-md-4 text-center py-5">
+          <i class="fa-solid fa-calendar-days "></i>
+          <h4 class="text-info title">2-YEAR PROGRAM</h4>
+          <p class="m-0">
+            <b>For your brighter feature and career!<br />100% Job
+              Guarantee</b>
+          </p>
+        </div>
+        <div class="col-md-4 text-center py-5">
+          <i class="fa-solid fa-laptop"></i>
+          <h4 class="text-info title">SOFTWARE ENGINEERING</h4>
+          <p class="m-0">
+            <b>For your brighter feature and career!<br />100% Job
+              Guarantee</b>
+          </p>
+        </div>
+        <div class="col-md-4 text-center py-5">
+          <i class="fa-solid fa-user-group"></i>
+          <h4 class="text-info title ">ON JOB TRAINING</h4>
+          <p class="m-0">
+            <b>For your brighter feature and career!<br />100% Job
+              Guarantee</b>
+          </p>
+        </div>
+
+        <div class="col-12 text-center pb-5">
+          <a href="#" class="btn  rounded-pill py-2 text-white shadow-none"
+            style="width: 250px;background-color: #20A7DF;">View More</a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-around mb-3">
+          <div class="col-md-5 text-center m-0 p-0">
+            <iframe class="w-100" height="260" src="https://www.youtube.com/embed/_U95WG6XZog?si=5ky4JTei8PvYZ_hc"
+              allowfullscreen></iframe>
+          </div>
+          <div class="col-md-5 text-center m-0 p-0">
+            <iframe class="w-100" height="260" src="https://www.youtube.com/embed/3lWiRuzX3cE?si=Ee2gXuekSMrW_6Y-"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section class="student_diversity_section">
+
+    <div class="container" id="student_diversity">
+      <div class="row d-flex justify-content-around align-items-center mb-5">
+        <div
+          class="col-md-5 d-flex flex-column justify-content-center align-items-center"
+        >
+          <h4 class="mb-lg-5 d-flex align-items-start mt-4 student-diversity" style="z-index: 999;">
+            STUDENT DIVERSITY IN HMI
+          </h4>
+          <img src="./image/chart.png" width="auto" height="300px" alt="" style="z-index: 9999;" />
+        </div>
+        <div
+          class="col-md-4 mt-4 d-flex justify-content-center align-items-center"
+        >
+          <img
+            src="./image/387327088_869003841393408_8937628880334378896_n.jpg" style="z-index: 9999;"
+            width="330px"
+            height="auto"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="years_program">
+    <div class="row g-0 justify-content-center">
+      <div class="first-second-year mt-5 btn-group col-lg-4 col-md-6 col-sm-8 col-10" role="group">
+          <button type="button" class="btn me-0 btn-lg d-block border-0 rounded-end rounded-pill shadow-none first-year border blue">First Year</button>
+          <button type="button" class="btn me-0 btn-lg d-block border-0 rounded-start rounded-pill shadow-none second-year border blue_dark">Second Year</button>
+      </div>
+  </div>
+    <div class="row g-0 it">
+      <div class="text-center first-head header-color curriculum cam-font">
+        OUR CURRICULUM
+      </div>
+      <div class="col-2 list">
+        <div class="circle first-circle">1</div>
+        <div class="doted"></div>
+        <div class="circle">2</div>
+        <div class="doted"></div>
+        <div class="circle">3</div>
+      </div>
+      <div class="col-10 it-card-container cam-font">
+        <div class="it-card  revel-right">
+          <img src="image/teacher.jpg" alt="" />
+          <div class="it-card-content">
+            <div class="it-card-header  first-head">IT Passport</div>
+            <div class="it-card-about">
+              Fundamental Strategy, Management, Technology.
+            </div>
+          </div>
+        </div>
+        <div class="it-card  revel-right">
+          <img src="image/teacher.jpg" alt="" />
+          <div class="it-card-content">
+            <div class="it-card-header first-head">IT Passport</div>
+            <div class="it-card-about">
+              Fundamental Strategy, Management, Technology.
+            </div>
+          </div>
+        </div>
+        <div class="it-card revel-right mb-5">
+          <img src="image/teacher.jpg" alt="" />
+          <div class="it-card-content">
+            <div class="it-card-header first-head">IT Passport</div>
+            <div class="it-card-about">
+              Fundamental Strategy, Management, Technology.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="activity_section">
+    <div class="container-fluid activities">
+      <div>
+        <p class="text-center activities-text display-1 cam-font">Our Activities</p>
+      </div>
+      <div class="row g-0">
+        <div class="col-12 p-0">
+          <div class="row g-0 ativity-image-wrapper" id="activityWrapper">
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design2.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design7.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design9.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design8.jpg" alt="" width="100%" height="100%" />
+            </div>
+          </div>
+          <div class="row g-0 ativity-image-wrapper" id="activityWrapper">
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design2.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design7.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design9.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design8.jpg" alt="" width="100%" height="100%" />
+            </div>
+          </div>
+          <div class="row g-0 ativity-image-wrapper" id="activityWrapper">
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design2.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design7.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design9.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design8.jpg" alt="" width="100%" height="100%" />
+            </div>
+          </div>
+          <div class="row g-0 ativity-image-wrapper" id="activityWrapper">
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design2.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design7.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design9.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/Design1.jpg" alt="" width="100%" height="100%" />
+            </div>
+            <div class="col p-0">
+              <div class="over-lay"></div>
+              <img src="image/design8.jpg" alt="" width="100%" height="100%" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="core_team_section">
+    <div class="container cam-font">
+      <div class="text-center first-head header-color mt-3"><b>OUR CORE TEAM</b></div>
+      <div class="text-center teacher-second-head">
+        Professional Lectures And Industry Experts
+      </div>
+      <swiper-container class="mySwiper" autoplay-delay="2500" init="false" loop="true">
+        <swiper-slide>
+          <div class="teacher-card">
+            <img class="teacher-img" src="image/teacher.jpg" alt="" />
+            <div class="teacher-name header-color">THWIN HTOO NAUNG</div>
+            <div class="teacher-job">PROJECT MANAGER</div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="teacher-card">
+            <img class="teacher-img" src="image/teacher.jpg" alt="" />
+            <div class="teacher-name header-color">THWIN HTOO NAUNG</div>
+            <div class="teacher-job">PROJECT MANAGER</div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="teacher-card">
+            <img class="teacher-img" src="image/teacher.jpg" alt="" />
+            <div class="teacher-name header-color">THWIN HTOO NAUNG</div>
+            <div class="teacher-job">PROJECT MANAGER</div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="teacher-card">
+            <img class="teacher-img" src="image/teacher.jpg" alt="" />
+            <div class="teacher-name header-color">THWIN HTOO NAUNG</div>
+            <div class="teacher-job">PROJECT MANAGER</div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="teacher-card">
+            <img class="teacher-img" src="image/teacher.jpg" alt="" />
+            <div class="teacher-name header-color">THWIN HTOO NAUNG</div>
+            <div class="teacher-job">PROJECT MANAGER</div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="teacher-card">
+            <img class="teacher-img" src="image/teacher.jpg" alt="" />
+            <div class="teacher-name header-color">THWIN HTOO NAUNG</div>
+            <div class="teacher-job">PROJECT MANAGER</div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="teacher-card">
+            <img class="teacher-img" src="image/teacher.jpg" alt="" />
+            <div class="teacher-name header-color">THWIN HTOO NAUNG</div>
+            <div class="teacher-job">PROJECT MANAGER</div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+    
+  </section>
+
+
+  <footer class="text-white-50" style="background-color: #0D0B30;">
+    <div class="container">
+      <div class="footer row">
+        <div class="col-md-4 p-4">
+          <img src="./image/hostmm.png" class="img-fluid w-75 mb-4" alt="hostmyanmar">
+          
+            <p class="text-white">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita</p>
+          <div class="social">
+            <a class="social-btn btn btn-outline-light"><i class="fab fa-twitter"></i></a>
+            <a class="social-btn btn btn-outline-light"><i class="fab fa-facebook"></i></a>
+            <a class="social-btn btn btn-outline-light"><i class="fab fa-youtube"></i></a>
+            <a class="social-btn btn btn-outline-light"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 p-4  text-white">
+          <h5 class="text-center border-bottom border-secondary pb-2" style="color: #4A81C3;"><b>Address</b></h5>
+          <div class="pt-1">
+            <p><i class="fa fa-map-marker-alt me-3"></i>6743 Street, New York, USA</p>
+            <p><i class="fa fa-phone-alt me-3"></i>+012-3434-43443</p>
+            <p><i class="fa fa-envelope me-3"></i>+012-3434-43443</p>
+          </div>
+        </div>
+        <div class="col-md-4 p-4">
+          <h5 class="text-center border-bottom border-secondary pb-2" style="color: #4A81C3;"><b>Quick Links</b></h5>
+          <div class="d-flex flex-column justify-start align-items-start text-white pt-1">
+            <a class="btn btn-link"><i class="fa-solid fa-chevron-right pe-2"></i><span>About USA </span></a>
+            <a class="btn btn-link"><i class="fa-solid fa-chevron-right pe-2"></i><span>Contact Us </span></a>
+            <a class="btn btn-link"><i class="fa-solid fa-chevron-right pe-2"></i><span>Our Services </span></a>
+            <a class="btn btn-link"><i class="fa-solid fa-chevron-right pe-2"></i><span>Term &amp; Condition </span></a>
+            <a class="btn btn-link"><i class="fa-solid fa-chevron-right pe-2"></i><span>Support </span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/jquery-3.7.1.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <script src="./js/jquery.fittext.js"></script>
+  <script src="./js/jquery.lettering.js"></script>
+  <script src="./js/jquery.textillate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.18.3/dist/tsparticles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/index.js"></script>
+
+  <script>
+    const swiperEl = document.querySelector("swiper-container");
+    Object.assign(swiperEl, {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 5,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 4,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 10,
+        },
+      },
+    });
+    swiperEl.initialize();
+  </script>
+ 
+  <script>
+    let lastScrollTop = 0;
+
+    $(window).on('scroll', function () {
+      let nav = document.querySelector('.navbar');
+      let scrollTop = $(this).scrollTop();
+      let navimg = document.querySelector('.navimg')
+
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        nav.classList.remove('mt-5');
+        if (scrollTop > 50) {
+          $('.navbar').addClass('active');
+        }
+        nav.classList.add('border-bottom');
+        navimg.setAttribute('style','height: ' + '60px');
+
+      } else if (scrollTop == 0){
+        navimg.setAttribute('style','height: ' + '80px');
+        nav.classList.remove('border-bottom');
+      }
+      else {
+        // Scrolling up
+        if (scrollTop <= 50) {
+          $('.navbar').removeClass('active');
+          nav.classList.add('mt-5');
+          
+          
+        }
+        
+      }
+      lastScrollTop = scrollTop;
+    });
+
+    window.onload = function () {
+            window.scrollTo(0, 0);
+        };
+  </script>
+</body>
+
+</html>
